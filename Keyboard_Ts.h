@@ -14,10 +14,11 @@ enum KeyboardState{
 class KeyboardTs{
     public:
     enum KeyboardState eRead();
-    KeyboardTs();
+    KeyboardTs(uint8_t);
     private:
     TS_DISCO_F429ZI ts;
     TS_StateTypeDef TS_State;
+    uint8_t ucColumn;
 };
 
 #endif

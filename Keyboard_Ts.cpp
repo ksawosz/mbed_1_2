@@ -1,14 +1,15 @@
 #include "Keyboard_Ts.h"
 
-KeyboardTs::KeyboardTs(){
+KeyboardTs::KeyboardTs(uint8_t ucSetColumn){
     ts.Init(240, 320);
+    ucColumn = ucSetColumn;
 }
 
 enum KeyboardState KeyboardTs::eRead(){
     ts.GetState(&TS_State);      
       if (TS_State.TouchDetected)
       {
-          if(TS_State.X < 81)
+          if((TS_State.X >= ucColumn*80)&&(TS_State.X <= (ucColumn+1)*80))
           {
             switch(TS_State.Y/80){
                 case 0:

@@ -6,9 +6,10 @@
 class LedLcd{
     public:
     void On(uint8_t);
-    LedLcd();
+    LedLcd(uint8_t);
     private:
     LCD_DISCO_F429ZI lcd;
+    uint8_t ucColumn;
 };
 
 #endif

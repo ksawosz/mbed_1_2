@@ -3,8 +3,8 @@
 #include "Led_Lcd.h"
 
 int main() {
-    LedLcd Led;
-    KeyboardTs Keyboard;
+    LedLcd Led(2);
+    KeyboardTs Keyboard(2);
         while(1) {
             switch(Keyboard.eRead()) {
                 case BUTTON_0:
