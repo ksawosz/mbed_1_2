@@ -9,7 +9,6 @@ class KeyboardTsLcd{
     KeyboardTsLcd(uint8_t);
     enum KeyboardState eRead();
     private:
-    uint8_t ucColumn;
     LedLcd *pLed;
     KeyboardTs *pKeyboard;
 };

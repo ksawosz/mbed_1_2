@@ -10,6 +10,7 @@ class LedLcd{
     private:
     LCD_DISCO_F429ZI lcd;
     uint8_t ucColumn;
+    void DisplayKeyboard(uint8_t ucPOS, uint32_t uiCOLOR);
 };
 
 #endif

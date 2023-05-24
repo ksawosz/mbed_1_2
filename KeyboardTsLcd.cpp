@@ -8,7 +8,8 @@ KeyboardTsLcd::KeyboardTsLcd(unsigned char _ucColumn)
 
 enum KeyboardState KeyboardTsLcd::eRead()
 {
-    switch(pKeyboard->eRead()) {
+    enum KeyboardState eButton = pKeyboard->eRead();
+    switch(eButton) {
         case BUTTON_0:
         pLed->On(0);
         break;
@@ -29,4 +30,5 @@ enum KeyboardState KeyboardTsLcd::eRead()
         pLed->On(4);
         break;
     }
+    return eButton;
 };
