@@ -1,7 +1,7 @@
 #include "Keyboard_Ts.h"
 
 #define BUTTON_WIDTH 80
-#define BUTTON_WIDTH 80
+#define BUTTON_HEIGHT 80
 #define SCREEN_SIZE_X 240
 #define SCREEN_SIZE_Y 320
 
@@ -11,27 +11,13 @@ KeyboardTs::KeyboardTs(uint8_t ucSetColumn){
 }
 
 enum KeyboardState KeyboardTs::eRead(){
-    ts.GetState(&TS_State);      
+    ts.GetState(&TS_State);
+    KeyboardState ButtonArray[4] = {BUTTON_0, BUTTON_1, BUTTON_2, BUTTON_3};     
       if (TS_State.TouchDetected)
       {
           if((TS_State.X >= ucColumn*BUTTON_WIDTH)&&(TS_State.X <= (ucColumn+1)*BUTTON_WIDTH))
           {
-            switch(TS_State.Y/BUTTON_WIDTH){
-                case 0:
-                return BUTTON_0;
-
-                case 1:
-                return BUTTON_1;
-
-                case 2:
-                return BUTTON_2;
-               
-                case 3:
-                return BUTTON_3;
-                
-                default:
-                return RELEASED;
-            }
+            return ButtonArray[TS_State.Y/BUTTON_HEIGHT];
           }
       }
     return RELEASED;

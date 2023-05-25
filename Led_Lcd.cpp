@@ -23,5 +23,5 @@ void LedLcd::DisplayKeyboard(uint8_t ucPOS, uint32_t uiCOLOR){
     lcd.DrawRect(ucColumn*BUTTON_WIDTH, ucPOS*BUTTON_HEIGHT, BUTTON_WIDTH, BUTTON_HEIGHT);
     lcd.SetBackColor(LCD_COLOR_RED);
     lcd.SetTextColor(LCD_COLOR_WHITE);
-    lcd.DisplayChar(ucColumn*BUTTON_WIDTH, ucPOS*BUTTON_HEIGHT, ucPOS+48);
+    lcd.DisplayChar(ucColumn*BUTTON_WIDTH, ucPOS*BUTTON_HEIGHT, '0'+ucPOS);
 }
